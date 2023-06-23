@@ -10,4 +10,4 @@ Curve Marking Technique for Sante Energy
 | Barge Crack        | BOA    |
 | Fuel Oil East/West | SJS    |
 | Visco              | STS    |
-| 180                | SZS    |
+| 380                | SZS    |
