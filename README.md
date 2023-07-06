@@ -29,3 +29,9 @@ Gasoline = (EBOB/RBOB + RBOB) * 42 + 92 E/W /8.33
 Mopj = (Brent + Mopj Crack) * 8.9
 Sing Gas Oil = (IPE(G) + Go East/West(BAP)) / 7.45
 ```
+
+## Products
+
+```
+hi5 = 0.5 - 380
+```
