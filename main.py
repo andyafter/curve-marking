@@ -13,9 +13,9 @@ def mark(product, mark_month, new_marked_value):
     for i in range(1,len(data)):
         if data[i][0] == mark_month:
             modify_diff = float(new_marked_value) - float(data[i][1])
-            data[i][1] = new_marked_value
+            data[i][1] = round(new_marked_value, 2)
         else:
-            data[i][1] = str(float(data[i][1]) + modify_diff)
+            data[i][1] = str(round(float(data[i][1]) + modify_diff, 2))
 
     # Convert the data into a LaTeX table
     latex_table = tabulate(data, tablefmt="latex")
@@ -54,7 +54,7 @@ def mark_380(brent, barge, sjs):
     for i in range(min(len(brent_data), len(barge_data), len(sjs))):
         t = brent_data[i][0]
         value = (float(brent_data[i][1])+ float(barge_data[i][1]))*6.35 + float(sjs_data[i][1])
-        data.append([t, round(value,3)])
+        data.append([t, round(value,2)])
     return data
 
 
@@ -71,7 +71,7 @@ def mark_singo(ipe, bap):
     for i in range(min(len(ipe_data), len(bap_data))):
         t = ipe_data[i][0]
         value = (float(ipe_data[i][1])+ float(bap_data[i][1]))/7.45
-        result.append([t, round(value,3)])
+        result.append([t, round(value,2)])
     return result
 
 def mark_visco(file_180, marked_380):
@@ -84,7 +84,7 @@ def mark_visco(file_180, marked_380):
     for i in range(l):
         t = data_180[i][0]
         value = float(data_180[i][1]) - float(marked_380[i][1])
-        result.append([t, round(value,3)])
+        result.append([t, round(value,2)])
     return result
 
 
@@ -100,7 +100,7 @@ def mark_mopj(brent, mopj_crack):
     for i in range(min(len(brent_data), len(mopj_crack_data))):
         t = brent_data[i][0]
         value = (float(brent_data[i][1])+ float(mopj_crack_data[i][1]))*8.9
-        result.append([t, round(value,3)])
+        result.append([t, round(value,2)])
     return result
 
 def mark_gasoline():
@@ -142,6 +142,12 @@ if __name__ == '__main__':
 
     with open("combined_table.tex", "w") as file:
         file.write("\\documentclass{article}\n")
+        file.write("\\usepackage{graphicx}\n")
+        file.write("\\usepackage{fancyhdr}\n")  # Add this line to use the fancyhdr package
+        file.write("\\pagestyle{fancy}\n")  # Set the page style to fancy
+        file.write("\\fancyhf{}\n")  # Clear all header and footer fields
+        file.write("\\renewcommand{\\headrulewidth}{0pt}\n")  # Remove the header line
+        file.write("\\fancyhead[L]{\\includegraphics[width=3.5cm]{logo.png}}\n")  # Add the logo to the left header
         file.write("\\begin{document}\n")
         file.write(latex_table)
         file.write("\\end{document}")
