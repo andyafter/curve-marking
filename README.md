@@ -17,12 +17,14 @@ Curve Marking Technique for Sante Energy
 | dfl                |        |
 | GO E/W             | BAP    |
 | IPE Gasoil         | G      |
+| Regrade            | BAQ    |
+| MOPJ Crack         | NBG    |
 
 ## Formulas
 
 ```
 Kero = Regrade + SinGO (Marked on top of SinGO, Kero has bad liquidity)
-380 = (Brent + Barge Crack)/6.35 + Fuel Oil East/West
+380 = (Brent + Barge Crack(BOA))/6.35 + Fuel Oil East/West
 Visco = 180 - 380
 LSFO 0.5% = hi5 + 380
 Gasoline = (EBOB/RBOB + RBOB) * 42 + 92 E/W /8.33

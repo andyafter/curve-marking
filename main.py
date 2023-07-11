@@ -58,11 +58,81 @@ def mark_380(brent, barge, sjs):
     return data
 
 
+def mark_singo(ipe, bap):
+    # Sing Gas Oil = (IPE(G) + Go East/West(BAP)) / 7.45
+    with open(ipe, 'r') as f:
+        reader = csv.reader(f)
+        ipe_data = list(reader)
+    with open(bap, 'r') as f:
+        reader = csv.reader(f)
+        bap_data = list(reader)
+
+    result = []
+    for i in range(min(len(ipe_data), len(bap_data))):
+        t = ipe_data[i][0]
+        value = (float(ipe_data[i][1])+ float(bap_data[i][1]))/7.45
+        result.append([t, round(value,3)])
+    return result
+
+def mark_visco(file_180, marked_380):
+    # Visco = 180 - 380
+    with open(file_180, 'r') as f:
+        reader = csv.reader(f)
+        data_180 = list(reader)
+    l = min(len(data_180), len(marked_380))
+    result = []
+    for i in range(l):
+        t = data_180[i][0]
+        value = float(data_180[i][1]) - float(marked_380[i][1])
+        result.append([t, round(value,3)])
+    return result
+
+
+def mark_mopj(brent, mopj_crack):
+    # Mopj = (Brent + Mopj Crack) * 8.9
+    with open(brent, 'r') as f:
+        reader = csv.reader(f)
+        brent_data = list(reader)
+    with open(mopj_crack, 'r') as f:
+        reader = csv.reader(f)
+        mopj_crack_data = list(reader)
+    result = []
+    for i in range(min(len(brent_data), len(mopj_crack_data))):
+        t = brent_data[i][0]
+        value = (float(brent_data[i][1])+ float(mopj_crack_data[i][1]))*8.9
+        result.append([t, round(value,3)])
+    return result
+
 def mark_gasoline():
 
     pass
 
+def generate_latex_table(data_dict):
+    latex_table = "\\begin{tabular}{|c|c|c|c|c|}\n"
+    latex_table += "\\hline\n"
+    latex_table += "Month & " + " & ".join(data_dict.keys()) + " \\\\\n"
+    latex_table += "\\hline\n"
+    for i in range(len(data_dict[list(data_dict.keys())[0]])):  # assuming all lists are of same length
+        latex_table += data_dict[list(data_dict.keys())[0]][i][0] + " & " + " & ".join([str(data_dict[k][i][1]) for k in data_dict.keys()]) + " \\\\\n"
+    latex_table += "\\hline\n"
+    latex_table += "\\end{tabular}\n\n"
+    return latex_table
+
 if __name__ == '__main__':
     product = "data/0.5.csv"
     # mark(product, "Aug23/Sep23", "8.5")
-    print(mark_380("data/brent.csv", "data/barge.csv", "data/sjs.csv"))
+    marked_380 = mark_380("data/brent.csv", "data/barge.csv", "data/sjs.csv")
+    marked_singo = mark_singo("data/ipe.csv", "data/bap.csv")
+    marked_visco = mark_visco("data/szs.csv", marked_380)
+    marked_mopj = mark_mopj("data/brent.csv", "data/nbg.csv")
+
+    data_dict = {"380": marked_380, "Singo": marked_singo, "Visco": marked_visco, "Mopj": marked_mopj}
+    latex_table = generate_latex_table(data_dict)
+
+    with open("table.tex", "w") as file:
+        file.write("\\documentclass{article}\n")
+        file.write("\\begin{document}\n")
+        file.write(latex_table)
+        file.write("\\end{document}")
+
+    print("LaTeX file has been written to table.tex")
