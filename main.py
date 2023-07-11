@@ -107,13 +107,24 @@ def mark_gasoline():
 
     pass
 
-def generate_latex_table(data_dict):
+def generate_table(data_dict):
     latex_table = "\\begin{tabular}{|c|c|c|c|c|}\n"
     latex_table += "\\hline\n"
-    latex_table += "Month & " + " & ".join(data_dict.keys()) + " \\\\\n"
+    latex_table += "Month & " + " & ".join([f"{k}" for k in data_dict.keys()]) + " \\\\\n"
     latex_table += "\\hline\n"
     for i in range(len(data_dict[list(data_dict.keys())[0]])):  # assuming all lists are of same length
-        latex_table += data_dict[list(data_dict.keys())[0]][i][0] + " & " + " & ".join([str(data_dict[k][i][1]) for k in data_dict.keys()]) + " \\\\\n"
+        month = data_dict[list(data_dict.keys())[0]][i][0]
+        values = []
+        for k in data_dict.keys():
+            values.append(str(data_dict[k][i][1]))
+        latex_table += month + " & " + " & ".join(values) + " \\\\\n"
+        if i < len(data_dict[list(data_dict.keys())[0]]) - 1:
+            spread_month = f"{month}/{data_dict[list(data_dict.keys())[0]][i+1][0]}"
+            spreads = []
+            for k in data_dict.keys():
+                spread = data_dict[k][i][1] - data_dict[k][i+1][1]
+                spreads.append(str(round(spread, 2)))
+            latex_table += "\\small{" + spread_month + "} & \\small{" + "} & \\small{".join(spreads) + "} \\\\\n"
     latex_table += "\\hline\n"
     latex_table += "\\end{tabular}\n\n"
     return latex_table
@@ -126,13 +137,13 @@ if __name__ == '__main__':
     marked_visco = mark_visco("data/szs.csv", marked_380)
     marked_mopj = mark_mopj("data/brent.csv", "data/nbg.csv")
 
-    data_dict = {"380": marked_380, "Singo": marked_singo, "Visco": marked_visco, "Mopj": marked_mopj}
-    latex_table = generate_latex_table(data_dict)
+    data_dict = {"380": marked_380, "Sing GO": marked_singo, "Visco": marked_visco, "Mopj": marked_mopj}
+    latex_table = generate_table(data_dict)
 
-    with open("table.tex", "w") as file:
+    with open("combined_table.tex", "w") as file:
         file.write("\\documentclass{article}\n")
         file.write("\\begin{document}\n")
         file.write(latex_table)
         file.write("\\end{document}")
 
-    print("LaTeX file has been written to table.tex")
+    print("LaTeX file has been written to combined_table.tex")
