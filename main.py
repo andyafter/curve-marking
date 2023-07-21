@@ -40,6 +40,7 @@ def mark(product, mark_month, new_marked_value):
 
 
 def mark_380(brent, barge, sjs):
+    # 380 = (Brent(I) + Barge Crack(BOA))/6.35 + Fuel Oil East/West(SJS)
     with open(brent, 'r') as f:
         reader = csv.reader(f)
         brent_data = list(reader)

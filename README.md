@@ -19,6 +19,12 @@ Curve Marking Technique for Sante Energy
 | IPE Gasoil         | G      |
 | Regrade            | BAQ    |
 | MOPJ Crack         | NBG    |
+| Brent/Dubai        | BOD    |
+| 92 E/W             | GDK    |
+| RBOB               | N      |
+| EBOB               | AEO    |
+| EBOB/RBOB          |        |
+| Sing Kero          | SRS    |
 
 ## Formulas
 
