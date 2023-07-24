@@ -4,27 +4,27 @@ Curve Marking Technique for Sante Energy
 
 ## Product Symbols
 
-| Product            | Symbol |
-| ------------------ | ------ |
-| Brent              | I      |
-| Barge Crack        | BOA    |
-| Fuel Oil East/West | SJS    |
-| Visco              | STS    |
-| 180                | SZS    |
-| 380                | SYS    |
-| LSGO               |        |
-| Dubai              |        |
-| dfl                |        |
-| GO E/W             | BAP    |
-| IPE Gasoil         | G      |
-| Regrade            | BAQ    |
-| MOPJ Crack         | NBG    |
-| Brent/Dubai        | BOD    |
-| 92 E/W             | GDK    |
-| RBOB               | N      |
-| EBOB               | AEO    |
-| EBOB/RBOB          |        |
-| Sing Kero          | SRS    |
+| Product                            | Symbol |
+| ---------------------------------- | ------ |
+| Brent                              | I      |
+| Barge Crack                        | BOA    |
+| Fuel Oil East/West                 | SJS    |
+| Visco                              | STS    |
+| 180                                | SZS    |
+| 380                                | SYS    |
+| LSGO                               |        |
+| Dubai                              |        |
+| dfl(Dated Brent/ Brent First Line) |        |
+| GO E/W                             | BAP    |
+| IPE Gasoil                         | G      |
+| Regrade                            | BAQ    |
+| MOPJ Crack                         | NBG    |
+| Brent/Dubai                        | BOD    |
+| 92 E/W                             | GDK    |
+| RBOB                               | N      |
+| EBOB                               | AEO    |
+| EBOB/RBOB                          |        |
+| Sing Kero                          | SRS    |
 
 ## Formulas
 
