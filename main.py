@@ -2,6 +2,12 @@ import csv
 import os
 from tabulate import tabulate
 
+
+STRIP_SEQUENCE = ["Aug23", "Sep23", "Oct23", "Nov23", "Dec23", "Jan24", "Feb24", "Mar24", "Apr24", "May24", "Jun24", "Jul24"]
+
+# only marks the next 6 months for now.
+MARKING_PERIOD = 6 
+
 def mark(product, mark_month, new_marked_value):
     # Read the CSV file into a list of lists
     with open(product, 'r') as f:
@@ -105,7 +111,7 @@ def mark_mopj(brent, mopj_crack):
     return result
 
 def mark_gasoline():
-
+    
     pass
 
 def generate_table(data_dict):
@@ -130,27 +136,37 @@ def generate_table(data_dict):
     latex_table += "\\end{tabular}\n\n"
     return latex_table
 
+
+def mark_from_month(strip, value_file, spread_file):
+    # marks the value from a known value sequence
+    start = STRIP_SEQUENCE.index(strip)
+    print(start)
+
+
 if __name__ == '__main__':
-    product = "data/0.5.csv"
-    # mark(product, "Aug23/Sep23", "8.5")
-    marked_380 = mark_380("data/brent.csv", "data/barge.csv", "data/sjs.csv")
-    marked_singo = mark_singo("data/ipe.csv", "data/bap.csv")
-    marked_visco = mark_visco("data/szs.csv", marked_380)
-    marked_mopj = mark_mopj("data/brent.csv", "data/nbg.csv")
+    # product = "data/0.5.csv"
+    # # mark(product, "Aug23/Sep23", "8.5")
+    # marked_380 = mark_380("data/brent.csv", "data/barge.csv", "data/sjs.csv")
+    # marked_singo = mark_singo("data/ipe.csv", "data/bap.csv")
+    # marked_visco = mark_visco("data/szs.csv", marked_380)
+    # marked_mopj = mark_mopj("data/brent.csv", "data/nbg.csv")
 
-    data_dict = {"380": marked_380, "Sing GO": marked_singo, "Visco": marked_visco, "Mopj": marked_mopj}
-    latex_table = generate_table(data_dict)
+    # data_dict = {"380": marked_380, "Sing GO": marked_singo, "Visco": marked_visco, "Mopj": marked_mopj}
+    # latex_table = generate_table(data_dict)
 
-    with open("combined_table.tex", "w") as file:
-        file.write("\\documentclass{article}\n")
-        file.write("\\usepackage{graphicx}\n")
-        file.write("\\usepackage{fancyhdr}\n")  # Add this line to use the fancyhdr package
-        file.write("\\pagestyle{fancy}\n")  # Set the page style to fancy
-        file.write("\\fancyhf{}\n")  # Clear all header and footer fields
-        file.write("\\renewcommand{\\headrulewidth}{0pt}\n")  # Remove the header line
-        file.write("\\fancyhead[L]{\\includegraphics[width=3.5cm]{logo.png}}\n")  # Add the logo to the left header
-        file.write("\\begin{document}\n")
-        file.write(latex_table)
-        file.write("\\end{document}")
+    # with open("combined_table.tex", "w") as file:
+    #     file.write("\\documentclass{article}\n")
+    #     file.write("\\usepackage{graphicx}\n")
+    #     file.write("\\usepackage{fancyhdr}\n")  # Add this line to use the fancyhdr package
+    #     file.write("\\pagestyle{fancy}\n")  # Set the page style to fancy
+    #     file.write("\\fancyhf{}\n")  # Clear all header and footer fields
+    #     file.write("\\renewcommand{\\headrulewidth}{0pt}\n")  # Remove the header line
+    #     file.write("\\fancyhead[L]{\\includegraphics[width=3.5cm]{logo.png}}\n")  # Add the logo to the left header
+    #     file.write("\\begin{document}\n")
+    #     file.write(latex_table)
+    #     file.write("\\end{document}")
 
-    print("LaTeX file has been written to combined_table.tex")
+    # print("LaTeX file has been written to combined_table.tex")
+
+
+    mark_from_month("Aug23", "data/380.csv", "spread/380.csv")
