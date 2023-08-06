@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1689151954 "/Users/panan/curve-marking/combined_table.tex" "combined_table.pdf" "combined_table" 1689151955
-  "/Users/panan/curve-marking/combined_table.tex" 1689151953 997 d654109c1f895421b777982eebdd65e7 ""
+["pdflatex"] 1690166876 "/Users/panan/curve-marking/combined_table.tex" "combined_table.pdf" "combined_table" 1690166877
+  "/Users/panan/curve-marking/combined_table.tex" 1690166876 1001 3afe8a7df45538cf8a787d0b2a8e7e39 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1136768653 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
@@ -22,8 +22,8 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1660204584 2826440 cdfc8e1fa5d9e8ff8ddcb0a38a158e1b ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "combined_table.aux" 1689151955 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "combined_table.tex" 1689151953 997 d654109c1f895421b777982eebdd65e7 ""
+  "combined_table.aux" 1690166877 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "combined_table.tex" 1690166876 1001 3afe8a7df45538cf8a787d0b2a8e7e39 ""
   "logo.png" 1689064419 62551 5cc55d376b5e592875e08ecffbe7880e ""
   (generated)
   "combined_table.aux"
