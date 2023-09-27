@@ -14,7 +14,7 @@ Curve Marking Technique for Sante Energy
 | 380                                | SYS    |
 | LSGO                               |        |
 | Dubai                              | DBI    |
-| dfl(Dated Brent/ Brent First Line) |        |
+| dfl(Dated Brent/ Brent First Line) | DBF    |
 | GO E/W                             | BAP    |
 | IPE Gasoil                         | G      |
 | Regrade                            | BAQ    |
