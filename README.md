@@ -13,7 +13,7 @@ Curve Marking Technique for Sante Energy
 | 180                                | SZS    |
 | 380                                | SYS    |
 | LSGO                               |        |
-| Dubai                              |        |
+| Dubai                              | DBI    |
 | dfl(Dated Brent/ Brent First Line) |        |
 | GO E/W                             | BAP    |
 | IPE Gasoil                         | G      |
@@ -23,7 +23,7 @@ Curve Marking Technique for Sante Energy
 | 92 E/W                             | GDK    |
 | RBOB                               | N      |
 | EBOB                               | AEO    |
-| EBOB/RBOB                          |        |
+| RBOB/EBOB                          | GDO    |
 | Sing Kero                          | SRS    |
 
 ## Formulas
