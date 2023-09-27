@@ -44,3 +44,4 @@ Sing Gas Oil = (IPE(G) + Go East/West(BAP)) / 7.45
 hi5 = 0.5 - 380
 Regrade = Sing Kero(Platts)/Sing Gasoil 10ppm(Platts)
 ```
+- Kerosene 1ton = 7.45bbl
